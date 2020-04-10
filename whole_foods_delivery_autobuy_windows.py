@@ -68,7 +68,7 @@ def getWFSlot(productUrl):
    duration = 1000
    freq = 440
 
-   driver = webdriver.Chrome()
+   driver = webdriver.Chrome('/opt/google/chrome/chromedriver')
    driver.get(productUrl)
    driver.maximize_window()         
    html = driver.page_source

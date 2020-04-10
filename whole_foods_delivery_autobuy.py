@@ -64,7 +64,7 @@ def getWFSlot(productUrl):
        'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36',
    }
 
-   driver = webdriver.Chrome()
+   driver = webdriver.Chrome('/opt/google/chrome/chromedriver')
    driver.get(productUrl)
    driver.maximize_window()         
    html = driver.page_source

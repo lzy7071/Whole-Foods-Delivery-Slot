@@ -23,7 +23,7 @@ If you'd like the script to select the first available time, and proceed all the
  
 It initializes a  webdriver, for which if you don't have one install it from: https://chromedriver.chromium.org/ for Chrome and https://github.com/mozilla/geckodriver/releases for FireFox.
 
-You'll have to update the path of the this installed webdriver under: ```python driver = webdriver.Chrome()``` if its not the default location your OS needs. Similarly, for FireFox ```python driver = webdriver.Firefox(executable_path="<your-webdriver-path>")```
+You'll have to update the path of the this installed webdriver under: ```python driver = webdriver.Chrome('/opt/google/chrome/chromedriver')``` if its not the default location your OS needs. Similarly, for FireFox ```python driver = webdriver.Firefox(executable_path="<your-webdriver-path>")```
 
 Script was written on Python 2.7.10
 

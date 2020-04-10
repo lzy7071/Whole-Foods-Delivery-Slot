@@ -9,7 +9,7 @@ import winsound
 
 
 def getWFSlot(productUrl):
-   driver = webdriver.Chrome()
+   driver = webdriver.Chrome('/opt/google/chrome/chromedriver')
    driver.get(productUrl)           
    html = driver.page_source
    soup = bs4.BeautifulSoup(html)
