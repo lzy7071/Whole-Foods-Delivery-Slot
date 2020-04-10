@@ -33,7 +33,7 @@ def getWFSlot(productUrl):
             print('SLOTS OPEN 1!')
             os.system('say "Slots for delivery opened!"')
             no_open_slots = False
-            time.sleep(1400)
+            time.sleep(300)
       except AttributeError:
          pass
 
@@ -45,7 +45,7 @@ def getWFSlot(productUrl):
                print('SLOTS OPEN 2!')
                os.system('say "Slots for delivery opened!"')
                no_open_slots = False
-               time.sleep(1400)
+               time.sleep(300)
       except AttributeError:
          pass
 
