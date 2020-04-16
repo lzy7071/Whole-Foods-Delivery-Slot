@@ -15,8 +15,11 @@ import winsound
 
 def autoCheckout(driver):
    driver = driver
+   duration = 1000
+   freq = 440
    
-   time.sleep(1)
+   time.sleep(4)
+   driver.execute_script("window.scrollTo(0, 200)")
    try:
       slot_select_button = driver.find_element_by_xpath('/html/body/div[5]/div[1]/div/div[2]/div/div/div/div/div[1]/div[4]/div[2]/div/div[3]/div/div/ul/li/span/span/div/div[2]/span/span/button')
       slot_select_button.click()
@@ -80,12 +83,12 @@ def getWFSlot(productUrl):
       driver.refresh()
       print("refreshed")
       html = driver.page_source
-      soup = bs4.BeautifulSoup(html)
+      soup = bs4.BeautifulSoup(html, "html.parser")
       time.sleep(4)
 
       slot_patterns = ['Next available', '1-hour delivery windows', '2-hour delivery windows']
       try:
-         next_slot_text = soup.find('h4', class_ ='ufss-slotgroup-heading-text a-text-normal').text
+         next_slot_text = str([x.text for x in soup.findAll('h4', class_ ='ufss-slotgroup-heading-text a-text-normal')])
          if any(next_slot_text in slot_pattern for slot_pattern in slot_patterns):
             print('SLOTS OPEN!')
             winsound.Beep(freq, duration)
@@ -119,6 +122,7 @@ def getWFSlot(productUrl):
             no_open_slots = False
 
             autoCheckout(driver)
+
 
 
 getWFSlot('https://www.amazon.com/gp/buy/shipoptionselect/handlers/display.html?hasWorkingJavascript=1')
